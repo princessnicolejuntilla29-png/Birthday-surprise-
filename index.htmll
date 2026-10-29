@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday! 💗</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Trebuchet MS", sans-serif;
+  color: #713d65;
+  text-align: center;
+  background: linear-gradient(135deg, #ffe3ef, #e9dcff, #fff0f5);
+  overflow-x: hidden;
+}
+
+.container {
+  width: 90%;
+  max-width: 430px;
+  margin: 35px auto;
+  padding: 28px 20px;
+  background: rgba(255,255,255,0.78);
+  border: 2px solid white;
+  border-radius: 28px;
+  box-shadow: 0 10px 35px #b77ca633;
+}
+
+h1 {
+  color: #e45d9c;
+  font-size: 2.1rem;
+  margin-bottom: 8px;
+}
+
+.subtitle {
+  color: #9c6c9b;
+}
+
+.cake {
+  font-size: 95px;
+  margin: 18px 0;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-9px); }
+}
+
+button {
+  border: none;
+  border-radius: 30px;
+  padding: 13px 20px;
+  margin: 8px 3px;
+  font-size: 15px;
+  font-weight: bold;
+  font-family: inherit;
+  color: white;
+  background: linear-gradient(90deg, #f17eb2, #b18bea);
+  box-shadow: 0 5px 12px #bd7caa44;
+  cursor: pointer;
+}
+
+button:active {
+  transform: scale(0.96);
+}
+
+#message, #finalSurprise {
+  display: none;
+  line-height: 1.8;
+  margin-top: 22px;
+  padding: 15px;
+  background: #fff0f7;
+  border-radius: 18px;
+  animation: appear 0.8s ease;
+}
+
+@keyframes appear {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.heart {
+  position: fixed;
+  bottom: -30px;
+  pointer-events: none;
+  animation: floatUp 5s linear forwards;
+  z-index: 5;
+}
+
+@keyframes floatUp {
+  to {
+    transform: translateY(-110vh) rotate(25deg);
+    opacity: 0;
+  }
+}
+
+#confetti {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 10;
+}
+
+.confetti-piece {
+  position: absolute;
+  top: -20px;
+  animation: fall 3s linear forwards;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(110vh) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+footer {
+  font-size: 12px;
+  color: #a47b9e;
+  margin-top: 25px;
+}
+</style>
+</head>
+
+<body>
+<div id="confetti"></div>
+
+<main class="container">
+  <div style="font-size:30px">🎀 ✨ 💗 ✨ 🎀</div>
+
+  <h1>Happy Birthday, Kathlene!</h1>
+
+  <p class="subtitle">
+    Today is your day!🥳
+  </p>
+
+  <div class="cake">🎂</div>
+
+  <h2 id="friendName">To my beautiful friend, Kath 💕</h2>
+
+  <p>
+    Someone special has a birthday today...
+    and I made something just for burikath! 💌
+  </p>
+
+  <button onclick="openSurprise()">
+    🎁 Open mo kath-ingko
+  </button>
+
+  <section id="message">
+    <h2>🍓 A Little Message for You 🍓</h2>
+
+    <p>
+      Happy birthday, katkatt! 🥳💖 I hope your special day
+      brings you lots of happiness, laughter, and
+      beautiful memories😘. Thank you for being part
+      of my life as my friend🥹. You deserve so many good things,
+      not just today but every day🥰. Please always take care
+      of yourself, keep smiling, and never forget
+      how special you are😣😍🤩. I wish you all the best
+      in everything you do🫂🥺. Love lots! 🎂🌷🍓
+    </p>
+
+    <button onclick="showFinal()">
+      💌 Isa pa beh, buksan mo
+    </button>
+  </section>
+
+  <section id="finalSurprise">
+    <h2>🌟 My Birthday Wish For You 🌟</h2>
+
+    <div style="font-size:55px">🌷💖🦋🍓</div>
+
+    <p>
+      May this new chapter of your life be filled
+      with peace, genuine happiness, new adventures,
+      and dreams coming true. You deserve the best!!!🙌😜
+    </p>
+
+    <h3>Never stop being YOU! 💗</h3>
+    <p>With love, from your friend🫶</p>
+    <p>Nicole😜😋</p>
+
+    <button onclick="celebrate()">
+      🎉 Pindot mo para effect effect haha!    </button>
+  </section>
+
+  <footer>
+    Made with 💗 just for you
+  </footer>
+</main>
+
+<script>
+function openSurprise() {
+  document.getElementById("message").style.display = "block";
+  document.getElementById("finalSurprise").style.display = "none";
+
+  celebrate();
+
+  document.getElementById("message").scrollIntoView({
+    behavior: "smooth",
+    block: "center"
+  });
+}
+
+function showFinal() {
+  document.getElementById("finalSurprise").style.display = "block";
+  celebrate();
+
+  document.getElementById("finalSurprise").scrollIntoView({
+    behavior: "smooth",
+    block: "center"
+  });
+}
+
+function celebrate() {
+  const area = document.getElementById("confetti");
+  const colors = ["💖", "✨", "🎉", "💕", "🌸", "🎊"];
+
+  for (let i = 0; i < 45; i++) {
+    const piece = document.createElement("span");
+    piece.className = "confetti-piece";
+    piece.textContent = colors[Math.floor(Math.random() * colors.length)];
+    piece.style.left = Math.random() * 100 + "vw";
+    piece.style.animationDelay = Math.random() * 1.5 + "s";
+    piece.style.fontSize = (14 + Math.random() * 15) + "px";
+
+    area.appendChild(piece);
+    setTimeout(() => piece.remove(), 5000);
+  }
+}
+
+function makeHeart() {
+  const heart = document.createElement("span");
+  heart.className = "heart";
+  heart.textContent = ["💗", "💕", "💖", "🌸"][
+    Math.floor(Math.random() * 4)
+  ];
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.fontSize = (16 + Math.random() * 18) + "px";
+
+  document.body.appendChild(heart);
+  setTimeout(() => heart.remove(), 5000);
+}
+
+setInterval(makeHeart, 650);
+</script>
+</body>
+</html>
